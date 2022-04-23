@@ -13,9 +13,9 @@ function App() {
     <UserContextProvider>
       <Router>          
           <Switch>        
-            <Route path={ routes.home } exact>
+            <PrivateRoute path={ routes.home } exact>
               { /* component */ }
-            </Route>
+            </PrivateRoute>
 
             <Route path={ routes.login } exact>
               <Login />
