@@ -3,9 +3,9 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const helmet = require('helmet');
-const { generateAccessToken } = require('./services/jwt/jwt.service');
 const { authenticateTokenJWT } = require('./middlewares/jwt.middleware');
 const { SongController } = require('./controllers/SongController');
+const UserController = require('./controllers/UserController');
 const port = process.env.PORT || 3525;
 
 app.use(cors());
@@ -19,11 +19,7 @@ app.get('/', (_, res) => {
 });
 
 // ↓ -- This needs testing done to it -- ↓
-app.post('/login', (req, res) => {
-    const user = { name: req.body.name, email: req.body.email };
-    const generatedJWT = generateAccessToken(user);
-    return res.status(200).json({ token: generatedJWT });
-});
+app.post('/login', UserController.attemptLogIn);
 
 app.get('/song', authenticateTokenJWT, SongController.getSongs);
   
