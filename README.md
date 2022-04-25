@@ -41,9 +41,6 @@ Sus repositorios principales:
 
 -  [React](https://github.com/facebook/react): **Librería** de JavaScript para el diseño de interfaces.
 
-## DB Schema
-
-![Database Schema](./assets/schema.jpg)
 
 ## Images
 
