@@ -48,15 +48,15 @@ Algunas imágenes de la aplicación:
 
  -  Login Light
 
-![Login Light](./assets/login-light.JPG)
+![Login Light](./assets/login-light.jpg)
 
  -  Login Dark
 
-![Login Dark](./assets/login-dark.JPG)
+![Login Dark](./assets/login-dark.jpg)
 
  -  App Funcionando
 
-![App](./assets/app-3.JPG)
+![App](./assets/app-3.jpg)
 
 ## Author
 
