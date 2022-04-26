@@ -1,7 +1,7 @@
 import { useContext, useCallback } from 'react';
 import Context from './../context/UserContext';
 import { attemptLogIn } from '../services/user.service';
-// import TokenService from '../services/token.service';
+import TokenService from '../services/session.service';
 
 
 export default function useAuth() {
@@ -11,18 +11,18 @@ export default function useAuth() {
     const login = useCallback( (formData) => {
         attemptLogIn(formData)
             .then(jwt => {
-                if(!jwt) return;
-                // TokenService.addToken(jwt);
-                setToken(jwt);
+                if(!jwt.token) return;
+                TokenService.save('token',jwt.token);
+                setToken(jwt.token);
             })
             .catch(err => {
-                // TokenService.removeToken();
+                TokenService.remove('token');
                 console.error(err.message);
             });
     }, [setToken]);
 
     const logout = useCallback( () => {
-        // TokenService.removeToken();
+        TokenService.remove('token');
         setToken(null);
     }, [setToken]);    
 

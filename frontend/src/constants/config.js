@@ -1,1 +1,1 @@
-export const apiURL = '';
+export const apiURL = 'http://vps-f87b433e.vps.ovh.net:8652/api/';
