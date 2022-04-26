@@ -22,7 +22,7 @@ jobs:
       run: ls -a
 
     - name: Move the env file out the api folder
-      run: ssh -o StrictHostKeyChecking=no -i ../key.pem root@${{ secrets.SSH_HOST }} "mv /var/www/html/tukki/api/.env && /var/www/html/.env.tukki"
+      run: ssh -o StrictHostKeyChecking=no -i ../key.pem root@${{ secrets.SSH_HOST }} "mv /var/www/html/tukki/api/.env /var/www/html/.env.tukki"
     - name: Removing folder and cloning the repository to /tukki
       run: ssh -o StrictHostKeyChecking=no -i ../key.pem root@${{ secrets.SSH_HOST }} "rm -rf /var/www/html/tukki && cd /var/www/html && git clone https://github.com/DavidFFDAW/Tukki-Music-App-2.git tukki"
     - name: Removing .git inside /tukki
