@@ -1,0 +1,48 @@
+.playlist-container{
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 0 10px;
+    margin-top: 10px;
+}
+.song-list{
+    width: 100%;
+}
+.song-list .song{
+    padding: 20px 10px;
+    margin: 15px 5px;
+    background-color: var(--tukki-white);
+    border-bottom: 1px solid var(--tukki-shadows);
+    box-shadow: 0 2px 10px var(--tukki-black);
+    color: var(--tukki-black);
+    border-radius: 5px;
+    cursor: default;
+    transition: all 0.2s;
+}
+.song-list .song:hover{
+    background-color: var(--tukki-inputs);
+}
+body.dark .song-list .song{
+    color: var(--tukki-white);
+    background-color: var(--tukki-black);
+}
+body.dark .song-list .song:hover{
+    background-color: var(--tukki-intense-black);
+    color: var(--tukki-yellow)
+}
+.upper, .upper *{
+    margin-left: 5px;
+    color: var(--tukki-blue);
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 700;
+}
+body.dark .upper,body.dark .upper *{
+    color: var(--tukki-yellow);
+}
+.space span.width-auto{ width: 10px; margin-right: 80px; }
+.song .icon{ transition: all 0.3s; color: var(--tukki-blue); cursor: pointer; }
+body.dark .song .icon{ color: var(--tukki-white); }
+body.dark .song .icon:hover{ color: var(--tukki-yellow); }
+.space span{
+    width: 35%;
+}

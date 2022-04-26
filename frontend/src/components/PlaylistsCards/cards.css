@@ -1,0 +1,18 @@
+.grid-playlists{
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: content;
+    box-sizing: border-box;
+    padding: 0 22px;
+}
+.playlists-title{ 
+    margin: 15px auto;
+    box-sizing: border-box;
+    text-transform: lowercase;
+    font-size: 55px;
+    padding-left: 40px;
+    color: var(--tukki-solid-intense-black);
+}
+body.dark .playlists-title{ 
+    color: var(--tukki-yellow);
+}

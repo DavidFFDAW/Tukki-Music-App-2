@@ -1,0 +1,9 @@
+.main-body{
+    position: relative;
+    box-sizing: border-box;
+    width: calc( 100% - 250px );
+    margin-left: 250px;
+    padding-top: 72px;
+    padding-bottom: 250px;
+    overflow-y: auto;
+}

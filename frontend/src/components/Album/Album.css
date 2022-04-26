@@ -1,0 +1,23 @@
+.album{
+    margin-bottom: 10px;
+}
+.album.container{
+    position: relative;
+    width: 40%;
+    box-sizing: border-box;
+    background-color: var(--tukki-black);
+    border-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.album .image{
+    position: absolute;
+    left: 0;
+
+    width: 50%;
+    height: 100%;
+}
+.album .content{
+    position: absolute;
+    right: 0;
+}

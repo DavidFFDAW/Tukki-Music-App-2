@@ -1,0 +1,115 @@
+.head-bg{
+    width: 100%;
+    height: 25px;
+    padding: 10px 0;
+    color: var(--tukki-white);
+    font-weight: 600;
+    font-size: 20px;
+    background-color: var(--tukki-blue);
+    z-index: 99;
+}
+body.dark .head-bg{ background-color: var(--tukki-intense-black); }
+
+.head-first{
+    box-sizing: border-box;
+    padding-left: 20px;
+}
+.head-first img{
+    margin-top: 10px;
+    width: 100px;
+    padding: 0;
+}
+.app-logo{
+    background-image: url('http://localhost:3000/tukki.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.user{
+    padding: 2px 20px;
+    margin-right: 15px;
+    background-color: var(--tukki-white);
+    border-radius: 25px;
+    color: var(--tukki-black);
+    cursor: pointer;
+    transition: all 0.4s;
+}
+
+.user:hover .user-options{
+    position: absolute;
+    width: 166px;
+    top: 35px;
+    right: 26px;
+    opacity: 1;
+    z-index: 99;
+}
+.user .user-options{
+    position: absolute;
+    background-color: var(--tukki-white);
+    width: 200px;
+    top: -850px;
+    right: 25px;
+    opacity: 0;
+    z-index: 0;
+    transition: all 0.5s;
+}
+
+.user .user-options .link {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: var(--tukki-solid-intense-black);
+    font-size: 15px;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%; padding: 15px 0;
+    box-sizing: border-box;
+    padding-right: 20px;
+}
+/* .user .user-options .link:first-child { margin-top: 10px } */
+.user .user-options .link:last-child { border-radius: 0 0 25px 25px; }
+.user .user-options .link:hover{
+    background-color: var(--tukki-inputs);
+}
+.user-img{
+    padding: 0;
+    width: 25px;
+    height: 25px;
+    background-color: var(--tukki-blue);
+    border-radius: 50%;
+    border: 2px solid var(--tukki-blue);
+}
+body.dark .user-img{ background-color: var(--tukki-yellow); border: 2px solid var(--tukki-solid-black); }
+.user span {
+    box-sizing: border-box;
+    color: var(--tukki-black);
+    padding-left: 20px;
+}
+.search-form input.search-input{
+    padding: 8px;
+    color: var(--tukki-intense-black);
+    border-radius: 20px 0 0 20px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+}
+
+.search-form button.search-button{
+    padding: 2px 8px;
+    padding-bottom: 3px;
+    border-radius: 0 20px 20px 0;
+    cursor: pointer;
+    outline: none;
+    color: var(--tukki-blue);
+    background-color: var(--tukki-white);
+    border: none;
+}
+
+.search-form button.search-button:hover{
+    cursor: pointer;
+    outline: none;
+    background-color: var(--tukki-inputs);
+    border: none;
+}

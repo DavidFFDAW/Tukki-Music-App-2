@@ -1,0 +1,92 @@
+/*.show-sidenav{
+    width: 10px;
+    height: 50px;
+    background-color: var(--tukki-blue);
+    position: relative;
+    top: 45px;
+    left: 0;
+    z-index: 99;
+    transition: all 0.5s;
+}
+
+.show-sidenav:hover {z-index: 9;}
+.show-sidenav:hover .sidenav{
+    left: 0;
+}*/
+.sidenav{
+    position: fixed;
+    background-color: var(--tukki-inputs);
+    left: 0;
+    top: 0;
+    z-index: 9;
+    width: 250px;
+    height: 100%;
+    box-shadow: 0 0 10px var(--tukki-shadows);
+    transition: all 0.5s;
+}
+body.dark .sidenav{ background-color: var(--tukki-black); }
+
+.sidenav .sidenav-img-container{
+    width: 100%;
+    padding: 50px 0;
+    background-color: var(--tukki-white);
+    border-bottom: 2px solid var(--tukki-black);
+}
+body.dark .sidenav-img-container{
+    background-color: var(--tukki-intense-black);
+}
+.sidenav .sidenav-img-container img {
+    width: 100%;
+    height: 100%;
+}
+.sidenav .sidenav-playlists-container{
+    position: relative;
+    width: 100%;
+    height: 42%;
+    box-sizing: border-box;
+    padding: 20px 0;
+    background-color: var(--tukki-inputs);
+    overflow-y: auto;
+}
+.sidenav .sidenav-playlists-container{
+    background-color: var(--tukki-test-blue);
+}
+body.dark .sidenav .sidenav-playlists-container{
+    background-color: var(--tukki-bg-grey);
+}
+.sidenav .sidenav-playlists-container .playlist{
+    width: 96%;
+    margin: auto;
+    background-color: var(--tukki-white);
+    border-radius: 10px;
+    border: none;
+    box-sizing: border-box;
+    padding: 15px 10px;
+    margin-bottom: 10px;
+    text-align: left;
+    text-transform: uppercase;
+    /*box-shadow: 0 0 8px var(--tukki-black);*/
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.quicksand{
+    font-family: 'Quicksand', sans-serif;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 600;
+}
+.sidenav .sidenav-playlists-container .playlist:hover{
+    background-color: var(--tukki-blue);
+    color: var(--tukki-white);
+    /*box-shadow: 0 0 10px var(--tukki-intense-black);*/
+}
+body.dark .sidenav .sidenav-playlists-container .playlist{
+    background-color: var(--tukki-black);
+    color: var(--tukki-yellow);
+    font-weight: 600;
+}
+body.dark .sidenav .sidenav-playlists-container .playlist:hover{
+    background-color: var(--tukki-yellow);
+    color: var(--tukki-solid-intense-black);
+    box-shadow: 0 0 30px var(--tukki-intense-black);
+}

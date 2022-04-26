@@ -1,0 +1,37 @@
+.player{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    height: 60px;
+    background-color: var(--tukki-blue);
+    padding: 20px 0;
+    z-index: 10;
+}
+.player .controls *{
+    font-size: 30px;
+    color: var(--tukki-white);
+    padding: 0 10px;
+}
+.player progress{
+    width: 80%;
+    height: 6px;
+    border-radius: 20px;
+    margin: 15px auto;
+}
+body.dark .player progress::-webkit-progress-bar {
+    background-color: var(--tukki-subtitles)
+}
+body.dark .player progress::-webkit-progress-value {
+    background-color: var(--tukki-yellow);
+    box-shadow: 5px 0 5px var(--tukki-yellow);
+}
+.player progress::-webkit-progress-bar {
+    background-color: var(--tukki-solid-black)
+}
+.player progress::-webkit-progress-value {
+    background-color: var(--tukki-test-blue);
+    box-shadow: 5px 0 5px var(--tukki-test-blue);
+}
+body.dark .player{
+    background-color: var(--tukki-solid-intense-black);
+}

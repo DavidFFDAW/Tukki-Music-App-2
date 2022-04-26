@@ -1,0 +1,11 @@
+.box-component{
+    box-sizing: border-box;
+    padding: 100px;
+    width: calc(100% - 220px);
+    margin-left: 220px;
+}
+.box-rounded-box{
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px var(--tukki-shadows);
+}

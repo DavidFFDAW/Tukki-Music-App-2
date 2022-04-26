@@ -1,0 +1,102 @@
+.circle-container{
+    width: 450px;
+  }
+
+  .login-form{
+    box-sizing: border-box;
+    padding: 25px;
+  }
+  img{
+    width: 80%;
+    height: 80%;
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .inner-box{
+    border-radius: 20px;
+    box-sizing: border-box;
+    padding: 20px;
+    background-color: white;
+  }
+  body.dark .inner-box{
+    border-radius: 20px;
+    box-sizing: border-box;
+    padding: 20px;
+    background-color: var(--tukki-solid-black);
+  }
+
+  .content{
+    width: 50%;
+    margin-right: 25px;
+  }
+  .color-block{
+    width: 50%;
+  }
+  .mix-image{
+    position: relative;
+    top: 0;
+    width: 35%;
+    height: 250px;
+    margin: 0 auto;
+    margin-top: -25%;
+  }
+  .mix-image img{
+    width: 90%;
+    height: 100%;
+  }
+  .mix-image button{
+    width: 90%;
+    margin: 0 auto;
+  }
+  .login-form p{
+    color: var(--tukki-subtitles);
+    margin-bottom: 25px;
+  }
+  .login-form a{
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: bold;
+    color: var(--tukki-blue);
+    cursor: pointer;
+  }
+  body.dark .login-form a{
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+  }
+  .login-form label{
+    display: block;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  body.dark .login-form label{
+      color: var(--tukki-yellow);
+  }
+  .login-form input, .login-form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    background-color: var(--tukki-inputs);
+    border: 1px solid #747474;
+    outline: none;
+    color: var(--tukki-solid-intense-black);
+    font-weight: 700px;
+    font-size: 16px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  .login-form textarea { height: 120px; }
+  body.dark .login-form input{
+      background-color: var(--tukki-inputs);
+  }
+  .btn-div{
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }

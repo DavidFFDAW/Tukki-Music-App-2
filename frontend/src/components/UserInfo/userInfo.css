@@ -1,0 +1,50 @@
+.info{
+    width: 95%;
+    padding: 20px 0;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    padding-left: 15px;
+    border-radius: 20px;
+    box-shadow: 0 2px 15px var(--tukki-black);
+    background-color: var(--tukki-white);
+}
+.mix-name{ color: var(--tukki-solid-intense-black); }
+body.dark .mix-name{ color: var(--tukki-yellow); }
+body.dark .info{
+    background-color: var(--tukki-solid-intense-black);
+}
+.info .info-image{
+    width: 30%;
+    height: 340px;
+    padding: 0 0;
+    border-radius: 10px;
+    background-color: var(--tukki-blue);
+}
+body.dark .info .info-image{ background-color: var(--tukki-inputs); }
+
+.info .info-data{
+    width: 80%;
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0 50px;
+    padding-right: 150px;
+}
+.info .info-data .title{
+    width: 80%;
+}
+body.dark .info .info-data .title{
+    color: var(--tukki-white);
+}
+.info .info-data .description{
+    box-sizing: border-box;
+    padding: 0 5px;
+    padding-right: 20px;
+    color: var(--tukki-blue);
+    font-weight: 700;
+    font-size: 20px;
+}
+.info .info-data button{
+    margin: 50px 0;
+}
+body.dark .info .info-data .description{ color: var(--tukki-yellow); }
+.info .info-data h3{ margin: 0;}

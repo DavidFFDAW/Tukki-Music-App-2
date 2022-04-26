@@ -3,9 +3,12 @@ import { UserContextProvider } from './context/UserContext';
 import { routes } from './constants/routes';
 
 import { PrivateRoute } from './components/PrivateRoute';
+import Header from './components/Header/Header';
+import MusicPlayer from './components/MusicPlayer/Player';
 import { Login } from './pages/LogInPage';
 
 import './App.css';
+import HomePage from './pages/HomePage';
 
 function App() {
 
@@ -15,11 +18,11 @@ function App() {
   
   return (
     <UserContextProvider>
-      <Router>          
+      <Router>
+        <Header />
           <Switch>        
             <PrivateRoute path={ routes.home } exact>
-              { /* component */}
-              <h4>Página Home</h4>
+              <HomePage />
             </PrivateRoute>
 
             <Route path={ routes.login } exact>
@@ -30,8 +33,9 @@ function App() {
               { /* component */}
               <h4>Tus Mixes</h4>
             </PrivateRoute>
-                      
+
           </Switch>
+        <MusicPlayer/>
       </Router>
     </UserContextProvider>
   );
