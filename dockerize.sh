@@ -1,5 +1,5 @@
-docker container rm -rf tukki_api_container
-docker container rm -rf tukki_front_container
+docker container rm -f tukki_api_container
+docker container rm -f tukki_front_container
 
 docker image rm -f tukki_api
 docker image rm -f tukki_front
