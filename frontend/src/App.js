@@ -1,4 +1,4 @@
-import { Route, Switch, BrowserRouter as Router, useHistory,useLocation } from 'react-router-dom';
+import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 import { UserContextProvider } from './context/UserContext';
 import { routes } from './constants/routes';
 
@@ -9,9 +9,9 @@ import './App.css';
 
 function App() {
 
-  const hist = useHistory();
-  const location = useLocation();  
-  hist.replace(location.pathname.replace('http://vps-f87b433e.vps.ovh.net:8652/', 'www.tukki.com/'));
+  // const hist = useHistory();
+  // const location = useLocation();  
+  // hist.replace(location.pathname.replace('http://vps-f87b433e.vps.ovh.net:8652/', 'www.tukki.com/'));
   
   return (
     <UserContextProvider>
