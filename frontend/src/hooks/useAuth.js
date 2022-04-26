@@ -8,7 +8,7 @@ export default function useAuth() {
 
     const { token, setToken } = useContext(Context);
 
-    const login = useCallback( (jsonData) => {
+    const login = useCallback((jsonData) => {
         attemptLogIn(jsonData)
             .then(jwt => {
                 if(!jwt.token) return;

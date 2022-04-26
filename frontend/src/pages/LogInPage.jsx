@@ -22,7 +22,7 @@ export function Login () {
 
     const handleSubmit = (ev) => {
         ev.preventDefault();
-        login({ username, password });
+        login({ email: username, password });
     }
     // const handleSend = (_) => {
     //     if (!data.email || !data.password) {
@@ -43,26 +43,26 @@ export function Login () {
                 <form className="login-form" onSubmit={handleSubmit}>
                     <div className="inner-box">
                         <div className="flex flex-space-btw">
-                            <div className="color-block"><img src="/tukki.png"/></div>
+                            <div className="color-block"><img alt="app logo" src="/tukki.png"/></div>
                             <div className="content">
                                 <p>Miles de playlists te esperan.<br/>
                                 Inicia sesión o crea una cuenta para empezar a disfrutar
                                 </p>
 
                                 <div>
-                                    <label>Correo o Username:</label>
-                                    <input type="text" autoComplete="current-password" onChange={ (ev) => setUsername(ev.target.value) } value={username}/>
+                                    <label>Correo Eléctronico:</label>
+                                    <input type="text" onChange={ (ev) => setUsername(ev.target.value) } value={username}/>
                                 </div>
                                 <div>
                                     <label>Contraseña:</label>
                                     <input type="password" onChange={ (ev) => setPassword(ev.target.value)} value={password}/>
                                 </div>
                                 <div className="flex flex-space-btw btn-div">
-                                    <Link type="button" className="btn btn-transparent" href="/register">Registrarme</Link>
+                                    <Link type="button" className="btn btn-transparent" to="/register">Registrarme</Link>
                                     <button type="submit" className="btn btn-primary">Iniciar sesión</button>
                                 </div>
                                 <div className="flex flex-center">
-                                    <a>He olvidado mi contraseña</a>
+                                    {/* <a href="#">He olvidado mi contraseña</a> */}
                                 </div>
                             </div>
                         </div>

@@ -18,15 +18,17 @@ function App() {
       <Router>          
           <Switch>        
             <PrivateRoute path={ routes.home } exact>
-              { /* component */ }
+              { /* component */}
+              <h4>Página Home</h4>
             </PrivateRoute>
 
             <Route path={ routes.login } exact>
               <Login />
             </Route>
 
-            <PrivateRoute path={ ''/* INSERT YOUR ROUTE NAME IN HERE */ }>
-              { /* component */ }
+            <PrivateRoute path={ '/mixes'/* INSERT YOUR ROUTE NAME IN HERE */ }>
+              { /* component */}
+              <h4>Tus Mixes</h4>
             </PrivateRoute>
                       
           </Switch>
