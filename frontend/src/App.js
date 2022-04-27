@@ -14,9 +14,6 @@ import './App.css';
 
 function App() {
 
-  // const hist = useHistory();
-  // const location = useLocation();  
-  // hist.replace(location.pathname.replace('http://vps-f87b433e.vps.ovh.net:8652/', 'www.tukki.com/'));
   
   return (
     <UserContextProvider>

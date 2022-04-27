@@ -1,23 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory, Link } from 'react-router-dom';
+import { getMyMixes } from '../../services/mixes.service';
 import './sidenav.css';
 
 function PlaylistSidenav () {
 
     const history = useHistory();
-    const [ tukkiMixes ] = useState([
-        { id: 1, name: 'Tukki Mix 1', title: 'Tukki Mix 1', description: 'Tukki Mix 1 description', image: 'https://i.ytimg.com/vi/QH2-TGUlwu4/hqdefault.jpg' },
-        { id: 2, name: 'Tukki Mix 1', title: 'Tukki Mix 1', description: 'Tukki Mix 1 description', image: 'https://i.ytimg.com/vi/QH2-TGUlwu4/hqdefault.jpg' },
-        { id: 3, name: 'Tukki Mix 1', title: 'Tukki Mix 1', description: 'Tukki Mix 1 description', image: 'https://i.ytimg.com/vi/QH2-TGUlwu4/hqdefault.jpg' },
-        { id: 4, name: 'Tukki Mix 1', title: 'Tukki Mix 1', description: 'Tukki Mix 1 description', image: 'https://i.ytimg.com/vi/QH2-TGUlwu4/hqdefault.jpg' },
-        { id: 5, name: 'Tukki Mix 1', title: 'Tukki Mix 1', description: 'Tukki Mix 1 description', image: 'https://i.ytimg.com/vi/QH2-TGUlwu4/hqdefault.jpg' },
-    ]);
+    const [ tukkiMixes, setTukkiMixes ] = useState([]);
     
-    console.log(tukkiMixes);
+    useEffect(_ => {
 
-    // useEffect(() => {
-    //     getMyMixes();
-    // },[]);
+
+        getMyMixes().then(res => {
+            console.log(res);
+            setTukkiMixes(res.mixes);
+            // setLoading(false);
+        });
+    }, []);
 
     const handleClick = ev => {
         console.log(ev.target.id);

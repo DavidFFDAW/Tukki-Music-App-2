@@ -1,24 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import { getMyMixes } from '../../services/mixes.service';
 import Card from '../Card/Card';
-// import Spinner from '../Spinner';
+import Spinner from '../Spinner';
 import './cards.css';
 
 export default function PlaylistsCards(){
 
-    const [ tukkiMixes ] = useState([
-        { id: 1, name: 'Tukki Mix 1', title: 'Tukki Mix 1', description: 'Tukki Mix 1 description', image: 'https://i.ytimg.com/vi/QH2-TGUlwu4/hqdefault.jpg' },
-        { id: 2, name: 'Tukki Mix 1', title: 'Tukki Mix 1', description: 'Tukki Mix 1 description', image: 'https://i.ytimg.com/vi/QH2-TGUlwu4/hqdefault.jpg' },
-        { id: 3, name: 'Tukki Mix 1', title: 'Tukki Mix 1', description: 'Tukki Mix 1 description', image: 'https://i.ytimg.com/vi/QH2-TGUlwu4/hqdefault.jpg' },
-        { id: 4, name: 'Tukki Mix 1', title: 'Tukki Mix 1', description: 'Tukki Mix 1 description', image: 'https://i.ytimg.com/vi/QH2-TGUlwu4/hqdefault.jpg' },
-        { id: 5, name: 'Tukki Mix 1', title: 'Tukki Mix 1', description: 'Tukki Mix 1 description', image: 'https://i.ytimg.com/vi/QH2-TGUlwu4/hqdefault.jpg' },
-    ]);
-    // const [ isLoading, setLoading ] = useState(false);
+    const [ tukkiMixes, setTukkiMixes ] = useState([]);
+    const [ isLoading, setLoading ] = useState(true);
     const history = useHistory();
 
-    // useEffect(_ => {
-    //     getMyMixes();
-    // },[]);
+    useEffect(_ => {
+        getMyMixes().then(res => {
+            console.log(res);
+            setTukkiMixes(res.mixes);
+            setLoading(false);
+        });
+    }, []);
 
     const handleCreatePlaylist = _ => {
         history.push('/cagajon-de-burra');
@@ -29,7 +28,7 @@ export default function PlaylistsCards(){
             <div className="flex flex-center">
                 <h3 className="playlists-title">Tus tukki-Mixes</h3>
             </div>
-                {/* { isLoading && <Spinner /> } */}
+            { isLoading && <Spinner /> }
             {
                 tukkiMixes.length === 0 
                 ?   <div className="flex flex-center">
