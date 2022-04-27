@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Card from '../Card/Card';
-import Spinner from '../Spinner';
+// import Spinner from '../Spinner';
 import './cards.css';
 
 export default function PlaylistsCards(){
 
-    const [ tukkiMixes, setMixes ] = useState([
+    const [ tukkiMixes ] = useState([
         { id: 1, name: 'Tukki Mix 1', title: 'Tukki Mix 1', description: 'Tukki Mix 1 description', image: 'https://i.ytimg.com/vi/QH2-TGUlwu4/hqdefault.jpg' },
         { id: 2, name: 'Tukki Mix 1', title: 'Tukki Mix 1', description: 'Tukki Mix 1 description', image: 'https://i.ytimg.com/vi/QH2-TGUlwu4/hqdefault.jpg' },
         { id: 3, name: 'Tukki Mix 1', title: 'Tukki Mix 1', description: 'Tukki Mix 1 description', image: 'https://i.ytimg.com/vi/QH2-TGUlwu4/hqdefault.jpg' },

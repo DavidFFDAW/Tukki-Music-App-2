@@ -1,7 +1,7 @@
 import { MdDarkMode, MdLightMode } from 'react-icons/md';
 
 
-export default function LightDarkModeButton ({ isDarkMode,handleDarkMode }) {
+export function LightDarkModeButton ({ isDarkMode,handleDarkMode }) {
     
     if(isDarkMode){
         return (

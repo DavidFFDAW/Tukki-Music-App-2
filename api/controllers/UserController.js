@@ -33,7 +33,8 @@ const attemptLogIn = async (req, res) => {
 
     const generatedJWT = generateAccessToken(user);
     // console.log(generatedJWT);
-    return res.status(200).json({ token: generatedJWT });
+    delete foundUser.password;
+    return res.status(200).json({ user: foundUser, token: generatedJWT });
 }
 
 

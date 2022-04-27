@@ -40,13 +40,13 @@ export default function MusicPlayer({ width }){
         setPlaying(false);
     }
 
-    /* const handleSongSkipped = _ => {
+    const handleSongSkipped = _ => {
             audio.current.pause();
             setPlaying(false);
             audio.current.dataset.current = +audio.current.dataset.current + 1;
             const nextSong = +audio.current.dataset.current + 1;
-            audio.current.src = getPlayingSong()[nextSong];
-    } */
+            // audio.current.src = getPlayingSong()[nextSong];
+    }
 
     const handleAudioEnded = _ => {
         setPlaying(false);

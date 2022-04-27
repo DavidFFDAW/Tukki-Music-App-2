@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-// import {routes} from '../../constants/routes';
+import React, { useState } from 'react';
+import { routes } from '../../constants/routes';
 import { Link, useHistory } from 'react-router-dom';
-import useAuth from '../../hooks/useAuth';
 import { SessionService } from '../../services/session.service';
-import LightDarkModeButton from './LightDarkModeButton';
+import { LightDarkModeButton } from './LightDarkMode';
+import useAuth from '../../hooks/useAuth';
 import './header.css';
 
 export default function Header(){
