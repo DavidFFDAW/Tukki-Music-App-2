@@ -5,6 +5,7 @@ const generateAccessToken = (user) => {
     console.log(process.env.JWT_SECRET);
     return jwt.sign(
         {
+            id: user.id,
             email: user.email,
             name: user.name,
         },

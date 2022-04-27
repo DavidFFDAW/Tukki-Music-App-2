@@ -1,12 +1,12 @@
 import React,{ useState } from 'react';
-import TokenService from '../services/session.service';
+import { SessionService } from '../services/session.service';
 
 const Context = React.createContext({});
 
 export function UserContextProvider({ children }){
 
     const [token, setToken] = useState(
-        () => TokenService.get('token')
+        () => SessionService.get('token')
     );
 
     return (<Context.Provider value={{ 

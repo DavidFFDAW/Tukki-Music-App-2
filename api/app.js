@@ -18,11 +18,18 @@ app.get('/api/', (_, res) => {
     res.status(200).send('Hello World!')
 });
 
-// ↓ -- This needs testing done to it -- ↓
+// Different components with different routes and different models (resource-types)
+
+// ↓ -- (: It works :) -- ↓
 app.post('/api/login', UserController.attemptLogIn);
+
+app.get('/api/test', JWTMiddleware.authenticateTokenJWT, UserController.test);
 
 app.get('/api/song', JWTMiddleware.authenticateTokenJWT, SongController.getSongs);
   
+
+
+
 app.listen(port, () => {
     console.log(`Listening on port ${port}`)
 });

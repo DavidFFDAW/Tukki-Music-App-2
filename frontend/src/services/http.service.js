@@ -1,4 +1,4 @@
-import TokenService from "./session.service";
+import { SessionService } from "./session.service";
 
 export default class HttpService {   
     static get = endpoint => this._makeFetchRequest(endpoint,'GET');
@@ -7,8 +7,7 @@ export default class HttpService {
     static delete = endpoint => this._makeFetchRequest(endpoint,'DELETE');
 
     static _makeFetchRequest(url, method, data){
-        const token = TokenService.get('token');
-        console.log('token:', token);
+        const token = SessionService.get('token');
 
         const options = {
             method: method,
@@ -24,7 +23,6 @@ export default class HttpService {
         if(data){
             options.body = JSON.stringify(data);
         }
-        console.log(options.body);
         
         return fetch(url, options).then(response => response.json());
     }

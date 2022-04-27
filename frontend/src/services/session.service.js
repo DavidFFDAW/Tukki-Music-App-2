@@ -7,7 +7,7 @@ const getParsedCookies = _ => {
 
 const save = (key,value) => {
     const d = new Date(); // today's date
-    d.setDate(d.getDate() + 3); // will expire in three days
+    d.setSeconds(d.getSeconds() + 1800); // will expire in 1800 seconds
     const expires = d.toUTCString();
     document.cookie = `${key}=${value}; expires=${expires}; path=/;`
 }
@@ -17,12 +17,15 @@ const get = (key) => {
     return cookies[key];
 }
 
-const remove = (key) => {
+const remove = (key = false) => {
+    if (!key) {
+        Object.keys(getParsedCookies()).forEach(key => {
+            document.cookie = `${key}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`
+        });
+    }
     document.cookie = `${key}=; expires=Thu, 01 Jan 1970 00:00:00 UTC;`;
 }
 
-const TokenService = {
+export const SessionService = {
     save, get, remove,
 };
-
-export default TokenService;

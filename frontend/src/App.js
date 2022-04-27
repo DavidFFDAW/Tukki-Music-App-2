@@ -5,10 +5,12 @@ import { routes } from './constants/routes';
 import { PrivateRoute } from './components/PrivateRoute';
 import Header from './components/Header/Header';
 import MusicPlayer from './components/MusicPlayer/Player';
+
 import { Login } from './pages/LogInPage';
+import HomePage from './pages/HomePage';
+import MixCreation from './pages/MixCreation';
 
 import './App.css';
-import HomePage from './pages/HomePage';
 
 function App() {
 
@@ -19,23 +21,36 @@ function App() {
   return (
     <UserContextProvider>
       <Router>
-        <Header />
-          <Switch>        
-            <PrivateRoute path={ routes.home } exact>
-              <HomePage />
-            </PrivateRoute>
+        <Switch>
+          {/* # Public route: can be accesed from anywhere */}
+          <Route path={ routes.login } exact>
+            <Login />
+          </Route>
+          
+          {/* # Private routes that do not need the header and the music player */}          
+          {/* <PrivateRoute path={'/route/without/header/and/player'} exact>
+            <HomePage />
+          </PrivateRoute> */}
+      
+          {/* # Private routes that share the header and the music player */}          
+          <PrivateRoute path={'/'}>
+          <Header />
+          
+            <Switch>
+              <PrivateRoute path={'/'} exact>
+                <HomePage />
+              </PrivateRoute>
 
-            <Route path={ routes.login } exact>
-              <Login />
-            </Route>
+              <PrivateRoute path={'/mix/create'} exact>
+                {/* <h1>Boludo</h1> */}
+                <MixCreation/>
+              </PrivateRoute>
+            </Switch>
 
-            <PrivateRoute path={ '/mixes'/* INSERT YOUR ROUTE NAME IN HERE */ }>
-              { /* component */}
-              <h4>Tus Mixes</h4>
-            </PrivateRoute>
-
-          </Switch>
-        <MusicPlayer/>
+            <MusicPlayer width={ '100%' }/>
+          </PrivateRoute>
+                
+        </Switch>
       </Router>
     </UserContextProvider>
   );

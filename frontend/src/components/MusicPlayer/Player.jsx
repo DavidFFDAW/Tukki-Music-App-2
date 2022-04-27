@@ -1,8 +1,5 @@
 import React, { useState, useRef } from 'react';
-// import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
-// import SkipNextIcon from '@material-ui/icons/SkipNext';
-// import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
-// import PauseCircleFilledIcon from '@material-ui/icons/PauseCircleFilled';
+import { BsPlayCircleFill, BsFillSkipBackwardFill, BsFillSkipForwardFill, BsPauseCircleFill } from 'react-icons/bs';
 import './musicplayer.css';
 
 export default function MusicPlayer({ width }){
@@ -43,13 +40,13 @@ export default function MusicPlayer({ width }){
         setPlaying(false);
     }
 
-    /* const handleSongSkipped = _ => {
+    const handleSongSkipped = _ => {
             audio.current.pause();
             setPlaying(false);
             audio.current.dataset.current = +audio.current.dataset.current + 1;
             const nextSong = +audio.current.dataset.current + 1;
-            audio.current.src = getPlayingSong()[nextSong];
-    } */
+            // audio.current.src = getPlayingSong()[nextSong];
+    }
 
     const handleAudioEnded = _ => {
         setPlaying(false);
@@ -66,9 +63,9 @@ export default function MusicPlayer({ width }){
     return (
         <div className="player" style={style}>
             <div className="flex flex-center controls">
-                {/* <SkipPreviousIcon/> */}
-                {/* { isPlaying ? <PauseCircleFilledIcon onClick={handleStop}/> : <PlayCircleFilledIcon onClick={ handlePlay }/> } */}
-                {/* <SkipNextIcon onClick={ handleSongSkipped }/> */}
+                <BsFillSkipBackwardFill/>
+                { isPlaying ? <BsPauseCircleFill onClick={handleStop}/> : <BsPlayCircleFill onClick={ handlePlay }/> }
+                <BsFillSkipForwardFill onClick={ handleSongSkipped }/>
             </div>
             <div className="flex flex-center">
                 <progress value="0" max="0" ref={progressBar} onClick={ handleProgressBarClick }></progress>

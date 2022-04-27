@@ -5,7 +5,7 @@ import './sidenav.css';
 function PlaylistSidenav () {
 
     const history = useHistory();
-    const [ tukkiMixes, setMyMixes ] = useState([
+    const [ tukkiMixes ] = useState([
         { id: 1, name: 'Tukki Mix 1', title: 'Tukki Mix 1', description: 'Tukki Mix 1 description', image: 'https://i.ytimg.com/vi/QH2-TGUlwu4/hqdefault.jpg' },
         { id: 2, name: 'Tukki Mix 1', title: 'Tukki Mix 1', description: 'Tukki Mix 1 description', image: 'https://i.ytimg.com/vi/QH2-TGUlwu4/hqdefault.jpg' },
         { id: 3, name: 'Tukki Mix 1', title: 'Tukki Mix 1', description: 'Tukki Mix 1 description', image: 'https://i.ytimg.com/vi/QH2-TGUlwu4/hqdefault.jpg' },
@@ -30,9 +30,9 @@ function PlaylistSidenav () {
 
             <div className="sidenav">
                 <div className="sidenav-img-container">
-                    <img src="/tukki.png"></img>
+                    <img src="/tukki.png" alt="app logo"></img>
                     <div className="flex flex-center down sidenav-create-mix">
-                        <Link className="btn btn-primary" to={ '/mixes' }>Crear un nuevo Mix</Link>
+                        <Link className="btn btn-primary" to={ '/mix/create' }>Crear un nuevo Mix</Link>
                     </div>
                 </div>
                 

@@ -1,15 +1,9 @@
 import React, { useState } from "react";
-import { createNewMix } from "../services/mixes.service";
-import { useHistory } from "react-router-dom";
-import routes from '../constants/routes';
-import checkAuth from "../hooks/useAuth";
-import useMixes from "../hooks/useMixes";
+// import { useHistory } from "react-router-dom";
+// import {routes} from '../constants/routes';
 
-export default function MixCreation(){
-    checkAuth();
-    const history = useHistory();
-
-    const { setMixes } = useMixes();
+export default function MixCreation() {
+    // const history = useHistory();
 
     // const [image,setImage] = useState('');
     const [name,setName] = useState('');
@@ -18,12 +12,12 @@ export default function MixCreation(){
     const handleSubmit = ev => {
         ev.preventDefault();
         if(name !== '' || description === ''){
-            createNewMix({ name: name, description: description })
-            .then(allMyMixes => {
-                console.log(allMyMixes);
-                setMixes(allMyMixes);
-                history.push(routes.home)
-            });
+            // createNewMix({ name: name, description: description })
+            // .then(allMyMixes => {
+            //     console.log(allMyMixes);
+            //     // setMixes(allMyMixes);
+            //     history.push(routes.home)
+            // });
         }
 
     }
@@ -43,35 +37,35 @@ export default function MixCreation(){
     return (
         <div className="flex flex-center">
 
-        <div className="box pad-top pad-down-160">
-            <div className="rounded-box">
-                <form className="login-form" encType="form" onSubmit={handleSubmit}>
-                    <div className="inner-box">
-                        <div className="flex flex-space-btw relative">
-                            <div className="color-block">
-                                <img src="http://localhost:3000/tukki.png"/>
-                                {/* <button className="btn btn-primary relative">Añadir Imagen
-                                    <input type="file" onChange={ handleImageChange } className="file-inside-btn"></input>
-                                </button> */}
-                            </div>
-                            <div className="content">                                
-                                <div>
-                                    <label>Nombre:</label>
-                                    <input type="text" autoComplete="off" onChange={ (ev) => setName(ev.target.value) } value={name}/>
+            <div className="box pad-top pad-down-160">
+                <div className="rounded-box">
+                    <form className="login-form" encType="form" onSubmit={handleSubmit}>
+                        <div className="inner-box">
+                            <div className="flex flex-space-btw relative">
+                                <div className="color-block">
+                                    <img src="/tukki.png" alt={ 'tukki logo' }/>
+                                    {/* <button className="btn btn-primary relative">Añadir Imagen
+                                        <input type="file" onChange={ handleImageChange } className="file-inside-btn"></input>
+                                    </button> */}
                                 </div>
-                                <div>
-                                    <label>Descripcion:</label>
-                                    <textarea type="text" onChange={ (ev) => setDescription(ev.target.value)} value={description}>
-                                    </textarea>
-                                </div>
-                                <div className="flex flex-space-btw btn-div">
-                                    <button type="submit" className="btn btn-primary">Crear Mix</button>
+                                <div className="content">                                
+                                    <div>
+                                        <label>Nombre:</label>
+                                        <input type="text" autoComplete="off" onChange={ (ev) => setName(ev.target.value) } value={name}/>
+                                    </div>
+                                    <div>
+                                        <label>Descripcion:</label>
+                                        <textarea type="text" onChange={ (ev) => setDescription(ev.target.value)} value={description}>
+                                        </textarea>
+                                    </div>
+                                    <div className="flex flex-space-btw btn-div">
+                                        <button type="submit" className="btn btn-primary">Crear Mix</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </form>
-            </div>
+                    </form>
+                </div>
             </div>
         </div>
     )
