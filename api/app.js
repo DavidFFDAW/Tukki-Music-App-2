@@ -6,6 +6,7 @@ const helmet = require('helmet');
 const JWTMiddleware = require('./middlewares/jwt.middleware');
 const { SongController } = require('./controllers/SongController');
 const UserController = require('./controllers/UserController');
+const { MixesController } = require('./controllers/MixesController');
 const port = process.env.PORT || 3525;
 
 app.use(cors());
@@ -25,7 +26,8 @@ app.post('/api/login', UserController.attemptLogIn);
 
 app.get('/api/test', JWTMiddleware.authenticateTokenJWT, UserController.test);
 
-app.get('/api/song', JWTMiddleware.authenticateTokenJWT, SongController.getSongs);
+app.get('/api/songs', JWTMiddleware.authenticateTokenJWT, SongController.getSongs);
+app.get('/api/mixes', JWTMiddleware.authenticateTokenJWT, MixesController.getUserMixes);
   
 
 

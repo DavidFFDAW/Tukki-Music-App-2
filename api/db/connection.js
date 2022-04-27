@@ -12,6 +12,7 @@ module.exports = {
     conn: new Sequelize(config.database, config.username, config.password, {
         host: config.host,
         dialect: 'mysql',
+        logging: false,
     }),
     defaultTableConfiguration: {
         timestamps: true,

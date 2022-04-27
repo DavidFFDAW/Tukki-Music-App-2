@@ -8,7 +8,6 @@ const authenticateTokenJWT = (req, res, next) => {
     if (!token || type.trim() !== 'Bearer') return res.sendStatus(401);
 
     jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
-        console.log(err);
 
         if (err) return res.sendStatus(403);
 

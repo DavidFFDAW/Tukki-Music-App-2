@@ -3,7 +3,7 @@ const { DataTypes } = require('sequelize');
 const User = require('./User');
 
 
-const Song = conn.define('songs', {
+const Mix = conn.define('playlists', {
     'id': {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -11,18 +11,15 @@ const Song = conn.define('songs', {
         primaryKey: true
     },
     'name': {
-        type: DataTypes.STRING,   
+        type: DataTypes.STRING(50),
     },
-    'artist': {
-        type: DataTypes.STRING,
+    'description': {
+        type: DataTypes.STRING(100), // should be type TEXT
     },
-    'url': {
-        type: DataTypes.STRING,
+    'image': {
+        type: DataTypes.STRING(100),
     },
-    'duration': {
-        type: DataTypes.BOOLEAN,
-    },
-    'artist_id': {
+    'user_id': {
         type: DataTypes.INTEGER,
     },
     'created_at': {
@@ -33,7 +30,6 @@ const Song = conn.define('songs', {
     },
 }, defaultTableConfiguration);
 
+Mix.belongsTo(User, { foreignKey: 'user_id' });
 
-User.hasMany(Song, { foreignKey: 'artist_id' });
-
-module.exports = Song;
+module.exports = Mix;
