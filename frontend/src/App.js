@@ -8,6 +8,7 @@ import MusicPlayer from './components/MusicPlayer/Player';
 
 import { Login } from './pages/LogInPage';
 import HomePage from './pages/HomePage';
+import MixCreation from './pages/MixCreation';
 
 import './App.css';
 
@@ -20,28 +21,36 @@ function App() {
   return (
     <UserContextProvider>
       <Router>
-          <Switch>        
-            <Route path={ routes.login } exact>
-              <Login />
-            </Route>
-        
-            <PrivateRoute path={routes.home} exact>
-              <Header />
+        <Switch>
+          {/* # Public route: can be accesed from anywhere */}
+          <Route path={ routes.login } exact>
+            <Login />
+          </Route>
+          
+          {/* # Private routes that do not need the header and the music player */}          
+          {/* <PrivateRoute path={'/route/without/header/and/player'} exact>
+            <HomePage />
+          </PrivateRoute> */}
+      
+          {/* # Private routes that share the header and the music player */}          
+          <PrivateRoute path={'/'}>
+          <Header />
+          
+            <Switch>
+              <PrivateRoute path={'/'} exact>
+                <HomePage />
+              </PrivateRoute>
 
-              <Switch>
-                <PrivateRoute path={ routes.home }>
-                  <HomePage />
-                </PrivateRoute>
+              <PrivateRoute path={'/mix/create'} exact>
+                {/* <h1>Boludo</h1> */}
+                <MixCreation/>
+              </PrivateRoute>
+            </Switch>
 
-                <PrivateRoute path={ '/mixes' }>
-                  <h4>Tus Mixes</h4>
-                </PrivateRoute>
-              </Switch>
-
-              <MusicPlayer width={ '100%' }/>
-            </PrivateRoute>
+            <MusicPlayer width={ '100%' }/>
+          </PrivateRoute>
                 
-          </Switch>
+        </Switch>
       </Router>
     </UserContextProvider>
   );

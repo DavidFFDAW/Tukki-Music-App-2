@@ -32,7 +32,7 @@ function PlaylistSidenav () {
                 <div className="sidenav-img-container">
                     <img src="/tukki.png" alt="app logo"></img>
                     <div className="flex flex-center down sidenav-create-mix">
-                        <Link className="btn btn-primary" to={ '/mixes' }>Crear un nuevo Mix</Link>
+                        <Link className="btn btn-primary" to={ '/mix/create' }>Crear un nuevo Mix</Link>
                     </div>
                 </div>
                 
