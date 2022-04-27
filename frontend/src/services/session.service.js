@@ -7,7 +7,7 @@ const getParsedCookies = _ => {
 
 const save = (key,value) => {
     const d = new Date(); // today's date
-    d.setDate(d.getSeconds() + 1800); // will expire in 1800 seconds
+    d.setSeconds(d.getSeconds() + 1800); // will expire in 1800 seconds
     const expires = d.toUTCString();
     document.cookie = `${key}=${value}; expires=${expires}; path=/;`
 }

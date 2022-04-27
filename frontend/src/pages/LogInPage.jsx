@@ -55,7 +55,7 @@ export function Login () {
                 <button className="btn btn-primary" onClick={ handleColorChange }>{ isLight ? 'Claro' : 'Oscuro' }</button>
             </div>
 
-            <div className="box" style={{ paddingTop: 230 }}>
+            <div className="box" style={{ paddingTop: 100 }}>
                 <div className="rounded-box">
                     <form className="login-form" onSubmit={handleSubmit}>
                         <div className="inner-box">
