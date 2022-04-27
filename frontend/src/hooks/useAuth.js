@@ -13,7 +13,7 @@ export default function useAuth() {
             .then(jwt => {
                 if(!jwt.token) return;
                 SessionService.save('token',jwt.token);
-                SessionService.save('user',jwt.user);
+                SessionService.save('user',JSON.stringify(jwt.user));
                 setToken(jwt.token);
             })
             .catch(err => {

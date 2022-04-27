@@ -5,10 +5,11 @@ import { routes } from './constants/routes';
 import { PrivateRoute } from './components/PrivateRoute';
 import Header from './components/Header/Header';
 import MusicPlayer from './components/MusicPlayer/Player';
+
 import { Login } from './pages/LogInPage';
+import HomePage from './pages/HomePage';
 
 import './App.css';
-import HomePage from './pages/HomePage';
 
 function App() {
 
@@ -23,19 +24,23 @@ function App() {
             <Route path={ routes.login } exact>
               <Login />
             </Route>
-          
-            <Header />
-              <PrivateRoute path={ routes.home } exact>
-                <HomePage />
-              </PrivateRoute>
+        
+            <PrivateRoute path={routes.home} exact>
+              <Header />
 
+              <Switch>
+                <PrivateRoute path={ routes.home }>
+                  <HomePage />
+                </PrivateRoute>
 
-              <PrivateRoute path={ '/mixes'/* INSERT YOUR ROUTE NAME IN HERE */ }>
-                { /* component */}
-                <h4>Tus Mixes</h4>
-              </PrivateRoute>
-            <MusicPlayer/>
+                <PrivateRoute path={ '/mixes' }>
+                  <h4>Tus Mixes</h4>
+                </PrivateRoute>
+              </Switch>
 
+              <MusicPlayer width={ '100%' }/>
+            </PrivateRoute>
+                
           </Switch>
       </Router>
     </UserContextProvider>

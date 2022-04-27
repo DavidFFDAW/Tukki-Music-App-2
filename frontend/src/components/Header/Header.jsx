@@ -3,6 +3,7 @@ import { routes } from '../../constants/routes';
 import { Link, useHistory } from 'react-router-dom';
 import { SessionService } from '../../services/session.service';
 import { LightDarkModeButton } from './LightDarkMode';
+import { BsSearch } from 'react-icons/bs';
 import useAuth from '../../hooks/useAuth';
 import './header.css';
 
@@ -15,7 +16,7 @@ export default function Header(){
     const [isDarkMode,setDarkMode] = useState(colorTheme === 'dark');
     // const [loading, setLoading] = useState(false);
     const [search, setSearch] = useState('');
-    const [user, setUser] = useState(_ => SessionService.get('user'));
+    const [user, setUser] = useState(_ => JSON.parse(SessionService.get('user')));
     const { logout } = useAuth();
 
     // useEffect(_ => {
@@ -62,7 +63,7 @@ export default function Header(){
             <div className="head-first">
                 <form className="flex flex-center search-form" onSubmit={ handleSearch }>
                     <input type="text" className="search-input" placeholder="Buscador..." value={ search } onChange={ ev => setSearch(ev.target.value) }/>
-                    <button type="submit" className="search-button"></button>
+                    <button type="submit" className="search-button"><BsSearch style={{ height: 23 }}/></button>
                 </form>
             </div>
             <div>

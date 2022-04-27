@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { BsPlayCircleFill, BsFillSkipForwardFill, BsSkipForwardFill, BsPauseCircleFill } from 'react-icons/bs';
+import { BsPlayCircleFill, BsFillSkipBackwardFill, BsFillSkipForwardFill, BsPauseCircleFill } from 'react-icons/bs';
 import './musicplayer.css';
 
 export default function MusicPlayer({ width }){
@@ -63,7 +63,7 @@ export default function MusicPlayer({ width }){
     return (
         <div className="player" style={style}>
             <div className="flex flex-center controls">
-                <BsSkipForwardFill/>
+                <BsFillSkipBackwardFill/>
                 { isPlaying ? <BsPauseCircleFill onClick={handleStop}/> : <BsPlayCircleFill onClick={ handlePlay }/> }
                 <BsFillSkipForwardFill onClick={ handleSongSkipped }/>
             </div>

@@ -10,12 +10,13 @@ export function Login () {
 
     const [username,setUsername] = useState('');
     const [password,setPassword] = useState('');
+    const [theme, setTheme] = useState(localStorage.getItem('themePreference') === 'light');
     const { login, isLogged } = useAuth();
     const history = useHistory();
 
     useEffect(() => {
         if (isLogged) {
-            const finalRedirectURL = window.sessionStorage.getItem('access-route') || routes.admin;
+            const finalRedirectURL = window.sessionStorage.getItem('access-route') || routes.home;
             history.push(finalRedirectURL);
         }
     }, [ history, isLogged ]);
@@ -23,6 +24,7 @@ export function Login () {
     const handleSubmit = (ev) => {
         ev.preventDefault();
         login({ email: username, password });
+        history.push(routes.home);
     }
     // const handleSend = (_) => {
     //     if (!data.email || !data.password) {
@@ -34,9 +36,23 @@ export function Login () {
 
     //     login(sendingData);
     // }
+    const saveThemePreference = _ => {
+        const savedPreference = localStorage.getItem('themePreference');
+        const themePreference = savedPreference === 'dark' ? 'light' : 'dark';
+        setTheme(themePreference);
+        localStorage.setItem('themePreference', themePreference);
+    }
+
+    const handleColorChange = _ => {
+        document.body.classList.toggle('dark');
+        saveThemePreference();
+    }   
 
     return (
         <div className="flex flex-center">
+            <div style={{ position: 'absolute', top: 10,  right: 10 }}>
+                <button className="btn btn-primary" onClick={ handleColorChange }>{ theme ? 'Oscuro' : 'Claro' }</button>
+            </div>
 
         <div className="box">
             <div className="rounded-box">
