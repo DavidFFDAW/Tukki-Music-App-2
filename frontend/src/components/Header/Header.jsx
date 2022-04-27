@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import {routes} from '../../constants/routes';
+// import {routes} from '../../constants/routes';
 import { Link, useHistory } from 'react-router-dom';
-import Spinner from '../Spinner';
 import useAuth from '../../hooks/useAuth';
+import { SessionService } from '../../services/session.service';
+import LightDarkModeButton from './LightDarkModeButton';
 import './header.css';
 
 export default function Header(){
@@ -12,8 +13,9 @@ export default function Header(){
     const history = useHistory();
     const colorTheme = localStorage.getItem('themePreference');
     const [isDarkMode,setDarkMode] = useState(colorTheme === 'dark');
-    const [loading, setLoading] = useState(false);
+    // const [loading, setLoading] = useState(false);
     const [search, setSearch] = useState('');
+    const [user, setUser] = useState(_ => SessionService.get('user'));
     const { logout } = useAuth();
 
     // useEffect(_ => {
@@ -72,16 +74,16 @@ export default function Header(){
                 
                 
             </div>
-                    { loading && <Spinner/> }
+                    {/* { loading && <Spinner/> } */}
             <div className="flex flex-center user">
                     <img className="user-img" src={ /* user.img || */ '/user.png'}></img>
-                    <span>{ 'Pepe' }</span>
+                    <span>{ user.name }</span>
                     <div className="user-options">
-                        {/* <ColorModeButton isDarkMode={isDarkMode} handleDarkMode={handleDarkMode}/> */}
-                        {/* { user.petition_status === notStarted  */}
-                        ? <button type="button" className="btn btn-primary">¡Quiero ser Artista!</button>
-                        {/* : '' */}
-                {/* } */}
+                        <LightDarkModeButton isDarkMode={isDarkMode} handleDarkMode={handleDarkMode}/>
+                        { user.petition_status === notStarted 
+                            ? <button type="button" className="btn btn-primary">¡Quiero ser Artista!</button>
+                            : ''
+                        }
                         <button className="link" onClick={ handleLogout }>Cerrar Sesión</button>
                     </div>
             </div>

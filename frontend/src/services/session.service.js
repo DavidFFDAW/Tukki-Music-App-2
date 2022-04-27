@@ -17,12 +17,15 @@ const get = (key) => {
     return cookies[key];
 }
 
-const remove = (key) => {
+const remove = (key = false) => {
+    if (!key) {
+        Object.keys(getParsedCookies()).forEach(key => {
+            document.cookie = `${key}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`
+        });
+    }
     document.cookie = `${key}=; expires=Thu, 01 Jan 1970 00:00:00 UTC;`;
 }
 
-const TokenService = {
+export const SessionService = {
     save, get, remove,
 };
-
-export default TokenService;

@@ -19,23 +19,24 @@ function App() {
   return (
     <UserContextProvider>
       <Router>
-        <Header />
           <Switch>        
-            <PrivateRoute path={ routes.home } exact>
-              <HomePage />
-            </PrivateRoute>
-
             <Route path={ routes.login } exact>
               <Login />
             </Route>
+          
+            <Header />
+              <PrivateRoute path={ routes.home } exact>
+                <HomePage />
+              </PrivateRoute>
 
-            <PrivateRoute path={ '/mixes'/* INSERT YOUR ROUTE NAME IN HERE */ }>
-              { /* component */}
-              <h4>Tus Mixes</h4>
-            </PrivateRoute>
+
+              <PrivateRoute path={ '/mixes'/* INSERT YOUR ROUTE NAME IN HERE */ }>
+                { /* component */}
+                <h4>Tus Mixes</h4>
+              </PrivateRoute>
+            <MusicPlayer/>
 
           </Switch>
-        <MusicPlayer/>
       </Router>
     </UserContextProvider>
   );

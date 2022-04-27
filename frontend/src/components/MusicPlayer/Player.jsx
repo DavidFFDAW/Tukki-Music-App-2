@@ -1,8 +1,5 @@
 import React, { useState, useRef } from 'react';
-// import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
-// import SkipNextIcon from '@material-ui/icons/SkipNext';
-// import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
-// import PauseCircleFilledIcon from '@material-ui/icons/PauseCircleFilled';
+import { BsPlayCircleFill, BsFillSkipForwardFill, BsSkipForwardFill, BsPauseCircleFill } from 'react-icons/bs';
 import './musicplayer.css';
 
 export default function MusicPlayer({ width }){
@@ -66,9 +63,9 @@ export default function MusicPlayer({ width }){
     return (
         <div className="player" style={style}>
             <div className="flex flex-center controls">
-                {/* <SkipPreviousIcon/> */}
-                {/* { isPlaying ? <PauseCircleFilledIcon onClick={handleStop}/> : <PlayCircleFilledIcon onClick={ handlePlay }/> } */}
-                {/* <SkipNextIcon onClick={ handleSongSkipped }/> */}
+                <BsSkipForwardFill/>
+                { isPlaying ? <BsPauseCircleFill onClick={handleStop}/> : <BsPlayCircleFill onClick={ handlePlay }/> }
+                <BsFillSkipForwardFill onClick={ handleSongSkipped }/>
             </div>
             <div className="flex flex-center">
                 <progress value="0" max="0" ref={progressBar} onClick={ handleProgressBarClick }></progress>

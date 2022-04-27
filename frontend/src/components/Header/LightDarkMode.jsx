@@ -1,5 +1,4 @@
-import Brightness7Icon from '@material-ui/icons/Brightness7';
-import Brightness4Icon from '@material-ui/icons/Brightness4';
+import { MdDarkMode, MdLightMode } from 'react-icons/md';
 
 
 export default function LightDarkModeButton ({ isDarkMode,handleDarkMode }) {
@@ -7,13 +6,13 @@ export default function LightDarkModeButton ({ isDarkMode,handleDarkMode }) {
     if(isDarkMode){
         return (
             <button className="link" onClick={ handleDarkMode }>
-                <Brightness7Icon/> <span className="intense-black">Claro</span>
+                <MdLightMode/> <span className="intense-black">Claro</span>
             </button>
         );        
     }
     return (
             <button className="link" onClick={ handleDarkMode }>
-                <Brightness4Icon/> <span className="intense-black">Oscuro</span>
+                <MdDarkMode/> <span className="intense-black">Oscuro</span>
             </button>
     );
 }
