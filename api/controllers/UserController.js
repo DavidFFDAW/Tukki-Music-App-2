@@ -1,6 +1,7 @@
 const User = require("../models/User");
 const { generateAccessToken } = require("../services/jwt/jwt.service");
 const bcrypt = require("bcryptjs");
+const { MailerService } = require("../services/mail.service");
 
 
 const attemptLogIn = async (req, res) => {
@@ -34,7 +35,11 @@ const attemptLogIn = async (req, res) => {
     return res.status(200).json({ user: foundUser, token: generatedJWT });
 }
 
-const test = (req, res) => { 
+const test = (req, res) => {
+    const mail = new MailerService();
+
+    mail.sendEmail('davidferflo2@gmail.com', 'Test', 'Test');
+
     return res.status(200).send({
         message: "Test successful",
         user: req.user
