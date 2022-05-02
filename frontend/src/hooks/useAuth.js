@@ -1,6 +1,6 @@
 import { useContext, useCallback } from 'react';
 import Context from './../context/UserContext';
-import { attemptLogIn } from '../services/user.service';
+import { attemptLogIn, attempRegistration } from '../services/user.service';
 import { SessionService } from '../services/session.service';
 
 
@@ -23,6 +23,10 @@ export default function useAuth() {
             });
     }, [setToken]);
 
+    const register = useCallback((jsonData) => {
+        return attempRegistration(jsonData);
+    }, []);
+
     const logout = useCallback( () => {
         SessionService.remove('token');
         SessionService.remove('user');
@@ -33,6 +37,7 @@ export default function useAuth() {
         isLogged: Boolean(token),
         login,
         logout,
-        token
+        token,
+        register
     }
 }

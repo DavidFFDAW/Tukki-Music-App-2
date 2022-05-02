@@ -23,6 +23,7 @@ app.get('/api/', (_, res) => {
 
 // ↓ -- (: It works :) -- ↓
 app.post('/api/login', UserController.attemptLogIn);
+app.post('/api/register', UserController.attempRegistration);
 
 app.get('/api/test', JWTMiddleware.authenticateTokenJWT, UserController.test);
 

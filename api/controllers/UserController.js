@@ -46,7 +46,54 @@ const test = (req, res) => {
     });
 }
 
+const attempRegistration = async (req, res) => {
+    const requiredFields = ["name", "email", "password", "repeatPassword"];
+    const bodyKeys = Object.keys(req.body);
+
+    const isEveryField = bodyKeys.every((key) => requiredFields.includes(key));
+
+    if (!isEveryField) {
+        return res.status(400).send({
+            message: "Required fields are missing",
+        });
+    }
+
+    const searchedUserByEmail = await User.findOne({ where: { email: req.body.email } });
+
+    if (searchedUserByEmail) {
+        return res.status(400).send({
+            message: "User already exists",
+        });
+    }
+
+    const isValidPassword = bcrypt.compareSync(req.body.password, req.body.repeatPassword);
+    const encryptedPassword = bcrypt.hashSync(req.body.password, 10);
+
+    if (!isValidPassword) {
+        return res.status(400).send({
+            message: "Passwords don't match",
+        });
+    }
+
+    const created = await User.create({
+        name: req.body.name,
+        email: req.body.email,
+        password: encryptedPassword,
+
+    });
+
+    if (!created) {
+        return res.status(500).send({
+            message: "Error creating user",
+        });
+    }
+
+    return res.status(201).send({ error: false, message: "User created successfully" });
+}
+
+
 module.exports = {
     attemptLogIn,
+    attempRegistration,
     test
 }

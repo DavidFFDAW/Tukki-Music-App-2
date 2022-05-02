@@ -5,6 +5,7 @@ import { routes } from './constants/routes';
 import { PrivateRoute } from './components/PrivateRoute';
 import Header from './components/Header/Header';
 import MusicPlayer from './components/MusicPlayer/Player';
+import Register from './components/Register/Register';
 
 import { Login } from './pages/LogInPage';
 import HomePage from './pages/HomePage';
@@ -22,6 +23,9 @@ function App() {
           {/* # Public route: can be accesed from anywhere */}
           <Route path={ routes.login } exact>
             <Login />
+          </Route>
+          <Route path={ '/register' } exact>
+            <Register />
           </Route>
           
           {/* # Private routes that do not need the header and the music player */}          

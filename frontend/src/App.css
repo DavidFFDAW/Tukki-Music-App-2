@@ -51,6 +51,17 @@ h3.non-upper-title {
   color: var(--tukki-white);
 }
 
+.login-form input.inpt-error {
+  margin-bottom: 2px;
+  box-shadow: #e76464 2px 0px 5px;
+  color: #bd5252;
+}
+.login-form .form-error {
+  color: #e76464;
+  font-size: 17px;
+  margin: 5px 0;
+  margin-bottom: 20px;
+}
 
 .fixed{
   position: fixed;
@@ -59,6 +70,20 @@ h3.non-upper-title {
 }
 .flex{
   display: flex;
+}
+
+@media only screen and (max-width: 600px) {
+  .flex {
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .flex > * {
+    width: 100%;
+  }
+  .box {
+    width: 100% !important;
+    padding: 10px 0 !important;
+  }
 }
 .flex-column{
   flex-direction: column;

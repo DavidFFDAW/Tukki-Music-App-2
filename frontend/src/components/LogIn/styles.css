@@ -86,10 +86,21 @@
     border: 1px solid #747474;
     outline: none;
     color: var(--tukki-solid-intense-black);
-    font-weight: 700px;
-    font-size: 16px;
+    font-weight: 700;
+    font-size: 17px;
     box-sizing: border-box;
     border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  .login-form input.inpt-error {
+    margin-bottom: 2px;
+    box-shadow: #e76464 2px 0px 5px;
+    color: #bd5252;
+  }
+  .login-form .form-error {
+    color: #e76464;
+    font-size: 17px;
+    margin: 5px 0;
     margin-bottom: 20px;
   }
   .login-form textarea { height: 120px; }
